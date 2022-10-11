@@ -15,12 +15,26 @@ public class RestResource {
 
 		return given(SpecBuilder.getRequestSpec())
 				.body(request)
-				.auth().oauth2(access_token)
+				.auth()
+				.oauth2(access_token)
 				.when()
 				.post(path).then().spec(SpecBuilder.getResponseSpec()).extract()
 				.response();
 
 	}
+	
+	public static Response post(Object request, String path) {
+
+		return given(SpecBuilder.getReqRes())
+				.body(request)
+				.when()
+				.post(path)
+				.then()
+				.spec(SpecBuilder.getResponseSpec()).extract()
+				.response();
+
+	}
+	
 	
 	public static Response postAccount(HashMap<String, String> formParams) {
 		return given(SpecBuilder.getAccountRequestSpec()).

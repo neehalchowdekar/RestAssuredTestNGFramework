@@ -33,5 +33,16 @@ public class SpecBuilder {
 				 log(LogDetail.ALL).
 				 build();
 	}
+	
+	public static RequestSpecification getReqRes() {
+		return new RequestSpecBuilder().
+				 setBaseUri("https://reqres.in/").
+				 setBasePath(Route.API).
+				 setContentType(ContentType.JSON).
+				 log(LogDetail.ALL).
+				 build();
+	}
+	
+	
 
 }
